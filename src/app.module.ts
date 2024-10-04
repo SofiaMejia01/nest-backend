@@ -13,7 +13,8 @@ import { ConfigModule } from '@nestjs/config';
     // MongooseModule.forRoot('mongodb://localhost:27017'),
 
     /*creando la conexion a la bd mongo pero con variables de entorno*/
-    MongooseModule.forRoot(process.env.MONGO_URI, {dbName: process.env.MONGO_DB_NAME}),
+     MongooseModule.forRoot(process.env.MONGO_URI, {dbName: process.env.MONGO_DB_NAME}),
+    //MongooseModule.forRoot(process.env.MONGO_URI),
 
     AuthModule
   ],

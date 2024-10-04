@@ -45,22 +45,23 @@ export class AuthService {
   
     } catch(error){
         if(error.code === 11000){
-          throw new BadRequestException(`${createUserDto.email} ya existe !`)
+          throw new BadRequestException(`El correo ${createUserDto.email} ya existe !`)
         }
         throw new InternalServerErrorException('Algo terrible paso !!!! ');
     }
     
   }
 
-  async register(registerDto:RegisterUserDto):Promise<LoginResponse> {
+  async register(registerDto:RegisterUserDto):Promise<User> {
 
     const user = await this.create(registerDto);
+    return user;
 
-    return{
-      user: user,
-      token: this.getJwtToken({id:user._id })
+    // return{
+    //   user: user,
+    //    token: this.getJwtToken({id:user._id })
 
-    }
+    // }
   }
 
   async login(loginDto: LoginDto):Promise<LoginResponse>{

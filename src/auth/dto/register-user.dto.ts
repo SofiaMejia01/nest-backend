@@ -9,6 +9,9 @@ export class RegisterUserDto {
     @IsString()
     name: string;
 
+     @IsString()
+     apellido: string;
+
     @MinLength(6)
     password: string;
 
